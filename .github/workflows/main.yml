@@ -27,4 +27,8 @@ jobs:
 
         #   Scan all file in the repository recursively
         - name: Run Bandit Scan
-          run: bandit -lll -r .
+          run: bandit -lll -r . -o report-card.json -f json
+
+        #  Generate report file for Vulnurability management tools
+        # - name: Generate Output
+            
