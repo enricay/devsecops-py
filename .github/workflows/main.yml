@@ -1,2 +1,30 @@
+# Pipeline Name
 name: DevSecOps-Tools
+
+# pipeline trigger
 on: [push]
+
+# SAST job 
+jobs:
+    SAST-SCAN:
+        # Machine to run the job
+        name: Run SAST Scan
+        runs: ubuntu-latest
+
+        steps:
+        # Clone repository to server
+        - name: Checkout Code
+          uses: actions/checkout@v4
+
+        - name: Setup Python
+          uses: actions/setup-python@v5.0.0
+          with:
+          # Version range or exact version of Python
+            python-version: latest
+
+        - name: Install Bandit Scanner
+          run: pip install bandit
+
+        #   Scan all file in the repository recursively
+        - name: Run Bandit Scan
+          run: bandit -r .
