@@ -20,7 +20,7 @@ jobs:
           uses: actions/setup-python@v5.0.0
           with:
           # Version range or exact version of Python
-            python-version: latest
+            python-version: 3.8
 
         - name: Install Bandit Scanner
           run: pip install bandit
