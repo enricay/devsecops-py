@@ -30,5 +30,10 @@ jobs:
           run: bandit -lll -r . -o report-card.json -f json
 
         #  Generate report file for Vulnurability management tools
-        # - name: Generate Output
+        - name: Upload Output as an artifact
+          uses: actions/upload-artifact@v3
+          with:
+            name: SAST-scan
+            path: report-card.json
+
             
