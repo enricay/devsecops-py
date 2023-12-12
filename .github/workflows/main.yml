@@ -9,7 +9,7 @@ jobs:
     SAST-SCAN:
         # Machine to run the job
         name: Run SAST Scan
-        runs: ubuntu-latest
+        runs-on: ubuntu-latest
 
         steps:
         # Clone repository to server
