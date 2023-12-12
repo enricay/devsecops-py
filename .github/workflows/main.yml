@@ -27,4 +27,4 @@ jobs:
 
         #   Scan all file in the repository recursively
         - name: Run Bandit Scan
-          run: bandit -r .
+          run: bandit iii -r .
