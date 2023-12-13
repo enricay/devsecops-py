@@ -70,5 +70,14 @@ jobs:
               dockerhub-user: ${{secrets.DOCKER_USER}} 
               dockerhub-password: ${{secrets.DOCKER_PASSWORD}} 
               command: quickview, cves
-          
+              only-severities: critical
+              sarif-file: Docker-Scout-report.sarif
             
+
+          #  Generate report file for Vulnurability management tools
+          - name: Upload Output as an artifact
+            uses: actions/upload-artifact@v3
+            if: always()
+            with:
+              name: Image-scan
+              path: Docker-Scout-report.sarif
